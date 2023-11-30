@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/mobile_navigation"
+    app:startDestination="@id/barberFragment">
+
+    <fragment
+        android:id="@+id/navigation_home"
+        android:name="com.example.kingsmen.presentation.ui.home.HomeFragment"
+        android:label="@string/title_home"
+        tools:layout="@layout/fragment_home" />
+
+    <fragment
+        android:id="@+id/navigation_shop"
+        android:name="com.example.kingsmen.presentation.ui.shop.ShopFragment"
+        android:label="shop"
+        tools:layout="@layout/fragment_shop" />
+
+    <fragment
+        android:id="@+id/navigation_profile"
+        android:name="com.example.kingsmen.presentation.ui.profile.PofileFragment"
+        android:label="@string/profile"
+        tools:layout="@layout/fragment_profile" />
+    <fragment
+        android:id="@+id/mainFragment"
+        android:name="com.example.kingsmen.presentation.ui.main.MainFragment"
+        android:label="fragment_main"
+        tools:layout="@layout/fragment_main" />
+    <fragment
+        android:id="@+id/authorizationFragment"
+        android:name="com.example.kingsmen.presentation.ui.authorization.AuthorizationFragment"
+        android:label="fragment_authorization"
+        tools:layout="@layout/fragment_authorization" />
+    <fragment
+        android:id="@+id/registerFragment"
+        android:name="com.example.kingsmen.presentation.ui.register.RegisterFragment"
+        android:label="fragment_register"
+        tools:layout="@layout/fragment_register" />
+    <fragment
+        android:id="@+id/barberShopFragment"
+        android:name="com.example.kingsmen.presentation.ui.barbershop.BarberShopFragment"
+        android:label="fragment_barber_shop"
+        tools:layout="@layout/fragment_barber_shop" />
+    <fragment
+        android:id="@+id/cardFragment"
+        android:name="com.example.kingsmen.presentation.ui.card.CardFragment"
+        android:label="fragment_card"
+        tools:layout="@layout/fragment_card" />
+    <fragment
+        android:id="@+id/historyRecordsFragment"
+        android:name="com.example.kingsmen.presentation.ui.records.HistoryRecordsFragment"
+        android:label="fragment_history_records"
+        tools:layout="@layout/fragment_history_records" />
+    <fragment
+        android:id="@+id/historyShopFragment"
+        android:name="com.example.kingsmen.presentation.ui.shop.HistoryShopFragment"
+        android:label="fragment_history_shop"
+        tools:layout="@layout/fragment_history_shop" />
+    <fragment
+        android:id="@+id/settingProfileFragment"
+        android:name="com.example.kingsmen.presentation.ui.profile.SettingProfileFragment"
+        android:label="fragment_setting_profile"
+        tools:layout="@layout/fragment_setting_profile" />
+    <fragment
+        android:id="@+id/barberFragment"
+        android:name="com.example.kingsmen.presentation.ui.home.barber.BarberFragment"
+        android:label="fragment_barber"
+        tools:layout="@layout/fragment_barber" />
+    <fragment
+        android:id="@+id/portfolioFragment"
+        android:name="com.example.kingsmen.presentation.ui.home.barber.portfolio.PortfolioFragment"
+        android:label="fragment_portfolio"
+        tools:layout="@layout/fragment_portfolio" />
+    <fragment
+        android:id="@+id/recordFragment"
+        android:name="com.example.kingsmen.presentation.ui.home.barber.record.RecordFragment"
+        android:label="fragment_record"
+        tools:layout="@layout/fragment_record" />
+    <fragment
+        android:id="@+id/reviewsFragment"
+        android:name="com.example.kingsmen.presentation.ui.home.barber.reviews.ReviewsFragment"
+        android:label="fragment_reviews"
+        tools:layout="@layout/fragment_reviews" />
+</navigation>

@@ -1,0 +1,139 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <LinearLayout
+        android:id="@+id/frame_stock"
+        app:layout_constraintTop_toTopOf="parent"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        >
+
+        <androidx.cardview.widget.CardView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="36dp"
+            android:layout_marginTop="12dp"
+            app:cardCornerRadius="18dp">
+
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="180dp"
+                android:background="@drawable/img_5"
+                android:scaleType="centerCrop" />
+        </androidx.cardview.widget.CardView>
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <TextView
+                android:id="@+id/haircuts_happy"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/montserrat_alternates"
+                android:text="Стрижка Happy Hours"
+                android:textColor="@color/white"
+                android:textSize="16sp"
+                app:layout_constraintBottom_toBottomOf="@id/btn_сheck_happy"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="@id/btn_сheck_happy" />
+
+            <RadioButton
+                android:id="@+id/btn_сheck_happy"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:buttonTint="@color/brown"
+                app:layout_constraintEnd_toStartOf="@id/haircuts_happy"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/price_happy"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="12dp"
+                android:text="@string/_590_c"
+                android:textColor="@color/brown"
+                android:textSize="16sp"
+                android:textStyle="bold"
+                app:layout_constraintStart_toStartOf="@id/haircuts_happy"
+                app:layout_constraintTop_toBottomOf="@id/haircuts_happy" />
+
+            <TextView
+                android:id="@+id/desc_happy"
+                android:layout_width="220dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="12dp"
+                android:fontFamily="@font/montserrat_alternates"
+                android:text="Стрижка 990 с. с понедельника по четверг с 12:00 до 15:00 по промокоду “Happy22”"
+                android:textColor="@color/white"
+                android:textSize="16sp"
+                app:layout_constraintStart_toStartOf="@id/price_happy"
+                app:layout_constraintTop_toBottomOf="@id/price_happy" />
+
+            <androidx.cardview.widget.CardView
+                android:id="@+id/container_father_and_son"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="36dp"
+                android:layout_marginTop="12dp"
+                app:cardCornerRadius="18dp"
+                app:layout_constraintTop_toBottomOf="@id/desc_happy">
+
+                <ImageView
+                    android:layout_width="match_parent"
+                    android:layout_height="180dp"
+                    android:background="@drawable/img_6"
+                    android:scaleType="centerCrop" />
+            </androidx.cardview.widget.CardView>
+
+            <TextView
+                android:id="@+id/tv_father_and_son"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/montserrat_alternates"
+                android:text="Отец +сын"
+                android:textColor="@color/white"
+                android:textSize="16sp"
+                app:layout_constraintBottom_toBottomOf="@id/btn_check_father_and_son"
+                app:layout_constraintStart_toStartOf="@id/haircuts_happy"
+                app:layout_constraintTop_toBottomOf="@id/container_father_and_son" />
+
+            <RadioButton
+                android:id="@+id/btn_check_father_and_son"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:buttonTint="@color/brown"
+                app:layout_constraintEnd_toStartOf="@id/tv_father_and_son"
+                app:layout_constraintTop_toBottomOf="@id/container_father_and_son" />
+
+            <TextView
+                android:id="@+id/price_father_and_son"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="12dp"
+                android:text="@string/_1000_c"
+                android:textColor="@color/brown"
+                android:textSize="16sp"
+                android:textStyle="bold"
+                app:layout_constraintStart_toStartOf="@id/tv_father_and_son"
+                app:layout_constraintTop_toBottomOf="@id/tv_father_and_son" />
+
+            <TextView
+                android:layout_width="220dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="12dp"
+                android:fontFamily="@font/montserrat_alternates"
+                android:text="Стрижка 1000 с. с вторника по четверг с 11:00 до 14:00 по промокоду “FatSon1” "
+                android:textColor="@color/white"
+                android:textSize="16sp"
+                app:layout_constraintStart_toStartOf="@id/price_father_and_son"
+                app:layout_constraintTop_toBottomOf="@id/price_father_and_son" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </LinearLayout>
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
