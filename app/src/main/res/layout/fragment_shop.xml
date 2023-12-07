@@ -6,7 +6,12 @@
     android:layout_height="match_parent"
     android:background="@color/night"
     tools:context=".presentation.ui.shop.ShopFragment">
-
+<include
+    android:id="@+id/loading"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:visibility="gone"
+    layout="@layout/progressbar"/>
     <TextView
         android:id="@+id/appBar"
         android:layout_width="wrap_content"
@@ -18,7 +23,6 @@
         android:textSize="20sp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
-
     <TextView
         android:id="@+id/count"
         android:layout_width="wrap_content"
@@ -39,6 +43,4 @@
         app:layout_constraintTop_toBottomOf="@id/count"
         app:spanCount="2"
         tools:listitem="@layout/item_shop_product" />
-
-
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -19,6 +19,10 @@ class PofileFragment :
         return FragmentProfileBinding.inflate(inflater,container,false)
     }
 
+    override fun initClicker() {
+
+    }
+
     override fun initListenrs() {
         with(binding) {
             btnBarbershop.setOnClickListener {
@@ -37,5 +41,9 @@ class PofileFragment :
                 findNavController().navigate(R.id.historyRecordsFragment)
             }
         }
+    }
+
+    override fun initLivedata() {
+
     }
 }

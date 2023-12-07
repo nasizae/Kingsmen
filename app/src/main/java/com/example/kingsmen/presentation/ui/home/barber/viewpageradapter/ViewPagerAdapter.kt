@@ -9,6 +9,7 @@ import com.example.kingsmen.presentation.ui.home.barber.record.RecordFragment
 import com.example.kingsmen.presentation.ui.home.barber.reviews.ReviewsFragment
 
 class ViewPagerAdapter(fragmentManager: FragmentManager,lifecycle: Lifecycle):FragmentStateAdapter(fragmentManager, lifecycle) {
+
     override fun getItemCount()=3
 
     override fun createFragment(position: Int): Fragment {

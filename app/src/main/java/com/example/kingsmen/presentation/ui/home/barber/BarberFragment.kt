@@ -1,28 +1,27 @@
 package com.example.kingsmen.presentation.ui.home.barber
 
-import android.annotation.SuppressLint
-import android.graphics.Color
-import android.graphics.drawable.ColorDrawable
 import android.os.Bundle
-import android.text.style.BackgroundColorSpan
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.core.content.ContextCompat
+import androidx.fragment.app.Fragment
+import coil.load
 import com.example.kingsmen.R
 import com.example.kingsmen.databinding.FragmentBarberBinding
+import com.example.kingsmen.presentation.ui.home.barber.portfolio.PortfolioFragment
 import com.example.kingsmen.presentation.ui.home.barber.viewpageradapter.ViewPagerAdapter
 import com.google.android.material.tabs.TabLayoutMediator
 
 class BarberFragment : Fragment() {
 
     private lateinit var binding: FragmentBarberBinding
+    private lateinit  var args:BarberFragmentArgs
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
+    ): View {
         binding = FragmentBarberBinding.inflate(inflater, container, false)
         return binding.root
     }
@@ -30,6 +29,18 @@ class BarberFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         initViewPager()
+        initLiveData()
+    }
+
+    private fun initLiveData() {
+        args = BarberFragmentArgs.fromBundle(requireArguments())
+        val bundle=Bundle()
+        args.master.let { master ->
+            binding.imgBarber.load(master.source_img)
+            binding.tvName.text = master.login
+            bundle.putInt("id",master.id)
+           PortfolioFragment().arguments=bundle
+        }
     }
 
     private fun initViewPager() {

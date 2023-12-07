@@ -7,15 +7,15 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView.Adapter
 import androidx.recyclerview.widget.RecyclerView.ViewHolder
 import coil.load
-import com.example.kingsmen.data.model.ModelBarberShop
+import com.example.kingsmen.data.model.ModelBarberShopItem
 import com.example.kingsmen.databinding.ItemBarbershopBinding
 
 class BarberShopAdapter : Adapter<BarberShopAdapter.BarberShopHolder>() {
 
-    private val _list = mutableListOf<ModelBarberShop.BarberShopModel>()
+    private val _list = mutableListOf<ModelBarberShopItem>()
     private val list get() = _list
 
-    fun addData(barberShopModel: List<ModelBarberShop.BarberShopModel>) {
+    fun addData(barberShopModel: List<ModelBarberShopItem>) {
         _list.clear()
         _list.addAll(barberShopModel)
         notifyItemRangeInserted(_list.size, barberShopModel.size - _list.size)
@@ -40,16 +40,19 @@ class BarberShopAdapter : Adapter<BarberShopAdapter.BarberShopHolder>() {
         ViewHolder(binding.root) {
 
         @SuppressLint("SetTextI18n")
-        fun bind(barberShopModel: ModelBarberShop.BarberShopModel) {
-            with(binding) {
-                tvNameBarbershop.text = barberShopModel.title
-                tvFtime.text = barberShopModel.ftime + "-"
-                tvTtime.text = barberShopModel.ttime
-                tvNavigation.text = barberShopModel.address
-                poster.load(barberShopModel.source_img)
+        fun bind(barberShopModel: ModelBarberShopItem) {
+                with(binding) {
+                    tvNameBarbershop.text = barberShopModel.title
+                    tvFtime.text = barberShopModel.ttime + " - "
+                    tvTtime.text = barberShopModel.ftime
+                    tvNavigation.text = barberShopModel.address
+                    poster.load(barberShopModel.source_img)
+
+                    Log.d("ololo", "bind:${barberShopModel.address} ")
+
+                }
             }
-            Log.e("ololo", "bind:$barberShopModel ", )
+
         }
 
     }
-}

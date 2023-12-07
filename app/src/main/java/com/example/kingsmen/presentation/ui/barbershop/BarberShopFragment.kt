@@ -1,6 +1,5 @@
 package com.example.kingsmen.presentation.ui.barbershop
 
-import android.annotation.SuppressLint
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -17,7 +16,7 @@ import com.example.kingsmen.presentation.ui.barbershop.adapter.BarberShopAdapter
 
 class BarberShopFragment : Fragment() {
     private lateinit var binding: FragmentBarberShopBinding
-    private val retrofitClient = RetrofitClient().createApiSrvice()
+    private val retrofitClient = RetrofitClient().createApiService()
     private val remoteDataSource = RemoteDataSource(retrofitClient)
     private val repository = Repository(remoteDataSource)
     private val barberShopViewModel = BarberShopViewModel(repository)
@@ -33,27 +32,31 @@ class BarberShopFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        initView()
         initListeners()
         initLiveData()
-        initView()
     }
 
-    @SuppressLint("NotifyDataSetChanged")
     private fun initLiveData() {
-        barberShopViewModel.barbershop.observe(viewLifecycleOwner){
-            barberShopAdapter.addData(it.barberShopModel)
+        barberShopViewModel.barbershop.observe(viewLifecycleOwner) {
+            barberShopAdapter.addData(it)
+            binding.rvBarbershop.adapter = barberShopAdapter
         }
-        barberShopViewModel.loading.observe(viewLifecycleOwner){
-            Toast.makeText(requireContext(), "lol", Toast.LENGTH_SHORT).show()
-        }
-        barberShopViewModel.error.observe(viewLifecycleOwner){
+        barberShopViewModel.loading.observe(viewLifecycleOwner) {loading->
+            if(loading) {
+                binding.loading.root.visibility = View.VISIBLE
+            }
+            else {
+                    binding.loading.root.visibility=View.VISIBLE
+                }
+            }
+        barberShopViewModel.error.observe(viewLifecycleOwner) {
             Toast.makeText(requireContext(), "error", Toast.LENGTH_SHORT).show()
         }
     }
 
     private fun initView() {
         barberShopViewModel.getBarberShop()
-        binding.rvBarbershop.adapter=barberShopAdapter
     }
 
     private fun initListeners() {

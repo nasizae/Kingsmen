@@ -264,13 +264,136 @@
                         android:padding="16dp" />
                 </androidx.cardview.widget.CardView>
 
-                <androidx.recyclerview.widget.RecyclerView
-                    android:id="@+id/rv_stock"
+                <LinearLayout
+                    android:id="@+id/frame_stock"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:orientation="vertical"
                     android:visibility="gone"
-                    app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
-                    tools:listitem="@layout/item_services" />
+                    app:layout_constraintTop_toTopOf="parent">
+
+                    <androidx.cardview.widget.CardView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginHorizontal="36dp"
+                        android:layout_marginTop="12dp"
+                        app:cardCornerRadius="18dp">
+
+                        <ImageView
+                            android:layout_width="match_parent"
+                            android:layout_height="180dp"
+                            android:background="@drawable/img_5"
+                            android:scaleType="centerCrop" />
+                    </androidx.cardview.widget.CardView>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="center"
+                        android:orientation="horizontal">
+
+                        <RadioButton
+                            android:id="@+id/btn_сheck_happy"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:buttonTint="@color/brown"
+                            app:layout_constraintEnd_toStartOf="@id/haircuts_happy"
+                            app:layout_constraintTop_toTopOf="parent" />
+
+                        <TextView
+                            android:id="@+id/haircuts_happy"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:fontFamily="@font/montserrat_alternates"
+                            android:text="Стрижка Happy Hours"
+                            android:textColor="@color/white"
+                            android:textSize="16sp" />
+
+                        <TextView
+                            android:id="@+id/price_happy"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="16dp"
+                            android:gravity="center"
+                            android:text="@string/_590_c"
+                            android:textColor="@color/brown"
+                            android:textSize="16sp"
+                            android:textStyle="bold" />
+                    </LinearLayout>
+
+
+                    <TextView
+                        android:id="@+id/desc_happy"
+                        android:layout_width="220dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="12dp"
+                        android:fontFamily="@font/montserrat_alternates"
+                        android:text="Стрижка 990 с. с понедельника по четверг с 12:00 до 15:00 по промокоду “Happy22”"
+                        android:textColor="@color/white"
+                        android:textSize="16sp"
+                        app:layout_constraintStart_toStartOf="@id/price_happy"
+                        app:layout_constraintTop_toBottomOf="@id/price_happy" />
+
+                    <androidx.cardview.widget.CardView
+                        android:id="@+id/container_father_and_son"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginHorizontal="36dp"
+                        android:layout_marginTop="12dp"
+                        app:cardCornerRadius="18dp"
+                        app:layout_constraintTop_toBottomOf="@id/desc_happy">
+
+                        <ImageView
+                            android:layout_width="match_parent"
+                            android:layout_height="180dp"
+                            android:background="@drawable/img_6"
+                            android:scaleType="centerCrop" />
+                    </androidx.cardview.widget.CardView>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="center"
+                        android:orientation="horizontal">
+
+                        <RadioButton
+                            android:id="@+id/btn_check_father_and_son"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:buttonTint="@color/brown" />
+
+                        <TextView
+                            android:id="@+id/tv_father_and_son"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:fontFamily="@font/montserrat_alternates"
+                            android:text="Отец +сын"
+                            android:textColor="@color/white"
+                            android:textSize="16sp" />
+
+
+                        <TextView
+                            android:id="@+id/price_father_and_son"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="12dp"
+                            android:text="@string/_1000_c"
+                            android:textColor="@color/brown"
+                            android:textSize="16sp"
+                            android:textStyle="bold" />
+                    </LinearLayout>
+
+                    <TextView
+                        android:layout_width="220dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="12dp"
+                        android:fontFamily="@font/montserrat_alternates"
+                        android:text="Стрижка 1000 с. с вторника по четверг с 11:00 до 14:00 по промокоду “FatSon1” "
+                        android:textColor="@color/white"
+                        android:textSize="16sp" />
+                </LinearLayout>
+
 
                 <androidx.cardview.widget.CardView
                     android:id="@+id/btn_haircuts"
@@ -300,49 +423,297 @@
                         android:padding="16dp" />
                 </androidx.cardview.widget.CardView>
 
-                <androidx.recyclerview.widget.RecyclerView
-                    android:id="@+id/rv_haircuts"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:visibility="gone"
-                    app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
-                    tools:listitem="@layout/item_services" />
 
-                <androidx.cardview.widget.CardView
-                    android:id="@+id/btn_shaving"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginHorizontal="20dp"
-                    android:layout_marginTop="16dp"
-                    android:backgroundTint="@color/black"
-                    app:cardCornerRadius="16dp">
+<!--                <LinearLayout-->
+<!--                    android:id="@+id/frame_haircuts"-->
+<!--                    android:layout_width="match_parent"-->
+<!--                    android:layout_height="wrap_content"-->
+<!--                    android:gravity="center"-->
+<!--                    android:orientation="vertical"-->
+<!--                    android:visibility="gone"-->
+<!--                    app:layout_constraintTop_toTopOf="parent">-->
 
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginStart="12dp"
-                        android:fontFamily="@font/montserrat_alternates_extrabold"
-                        android:paddingVertical="12dp"
-                        android:text="@string/shaving"
-                        android:textColor="@color/white"
-                        android:textSize="16sp" />
+<!--                    <androidx.cardview.widget.CardView-->
+<!--                        android:layout_width="match_parent"-->
+<!--                        android:layout_height="wrap_content"-->
+<!--                        android:layout_marginHorizontal="36dp"-->
+<!--                        android:layout_marginTop="12dp"-->
+<!--                        app:cardCornerRadius="18dp">-->
 
-                    <ImageView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_gravity="end|center"
-                        android:layout_marginEnd="12dp"
-                        android:background="@drawable/ic_arrow_top"
-                        android:padding="16dp" />
-                </androidx.cardview.widget.CardView>
+<!--                        <ImageView-->
+<!--                            android:layout_width="match_parent"-->
+<!--                            android:layout_height="180dp"-->
+<!--                            android:background="@drawable/ic_brushed_back"-->
+<!--                            android:scaleType="centerCrop" />-->
+<!--                    </androidx.cardview.widget.CardView>-->
 
-                <androidx.recyclerview.widget.RecyclerView
-                    android:id="@+id/rv_shaving"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:visibility="gone"
-                    app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
-                    tools:listitem="@layout/item_services" />
+<!--                    <LinearLayout-->
+<!--                        android:layout_width="match_parent"-->
+<!--                        android:layout_height="wrap_content"-->
+<!--                        android:gravity="center"-->
+<!--                        android:orientation="horizontal">-->
+
+<!--                        <RadioButton-->
+<!--                            android:id="@+id/btn_Brushed_Back"-->
+<!--                            android:layout_width="wrap_content"-->
+<!--                            android:layout_height="wrap_content"-->
+<!--                            android:buttonTint="@color/brown"-->
+<!--                            app:layout_constraintEnd_toStartOf="@id/haircuts_happy"-->
+<!--                            app:layout_constraintTop_toTopOf="parent" />-->
+
+<!--                        <TextView-->
+<!--                            android:id="@+id/haircuts_Brushed_Back"-->
+<!--                            android:layout_width="wrap_content"-->
+<!--                            android:layout_height="wrap_content"-->
+<!--                            android:fontFamily="@font/montserrat_alternates"-->
+<!--                            android:text="Стрижка Brushed Back"-->
+<!--                            android:textColor="@color/white"-->
+<!--                            android:textSize="16sp" />-->
+
+<!--                        <TextView-->
+<!--                            android:id="@+id/price_Brushed_Back"-->
+<!--                            android:layout_width="wrap_content"-->
+<!--                            android:layout_height="wrap_content"-->
+<!--                            android:layout_marginStart="16dp"-->
+<!--                            android:gravity="center"-->
+<!--                            android:text="@string/_1390_c"-->
+<!--                            android:textColor="@color/brown"-->
+<!--                            android:textSize="16sp"-->
+<!--                            android:textStyle="bold" />-->
+<!--                    </LinearLayout>-->
+
+
+<!--                    <TextView-->
+<!--                        android:id="@+id/desc_Brushed_Back"-->
+<!--                        android:layout_width="220dp"-->
+<!--                        android:layout_height="wrap_content"-->
+<!--                        android:layout_marginTop="12dp"-->
+<!--                        android:fontFamily="@font/montserrat_alternates"-->
+<!--                        android:text="Волосы укладываются назад, создавая гладкую и структурированную стрижку."-->
+<!--                        android:textColor="@color/white"-->
+<!--                        android:textSize="16sp"-->
+<!--                        app:layout_constraintStart_toStartOf="@id/price_happy"-->
+<!--                        app:layout_constraintTop_toBottomOf="@id/price_happy" />-->
+
+<!--                    <androidx.cardview.widget.CardView-->
+<!--                        android:id="@+id/container_father_and_son"-->
+<!--                        android:layout_width="match_parent"-->
+<!--                        android:layout_height="wrap_content"-->
+<!--                        android:layout_marginHorizontal="36dp"-->
+<!--                        android:layout_marginTop="12dp"-->
+<!--                        app:cardCornerRadius="18dp"-->
+<!--                        app:layout_constraintTop_toBottomOf="@id/desc_happy">-->
+
+<!--                        <ImageView-->
+<!--                            android:layout_width="match_parent"-->
+<!--                            android:layout_height="180dp"-->
+<!--                            android:background="@drawable/img_6"-->
+<!--                            android:scaleType="centerCrop" />-->
+<!--                    </androidx.cardview.widget.CardView>-->
+
+<!--                    <LinearLayout-->
+<!--                        android:layout_width="match_parent"-->
+<!--                        android:layout_height="wrap_content"-->
+<!--                        android:gravity="center"-->
+<!--                        android:orientation="horizontal">-->
+
+<!--                        <RadioButton-->
+<!--                            android:id="@+id/btn_check_father_and_son"-->
+<!--                            android:layout_width="wrap_content"-->
+<!--                            android:layout_height="wrap_content"-->
+<!--                            android:buttonTint="@color/brown" />-->
+
+<!--                        <TextView-->
+<!--                            android:id="@+id/tv_father_and_son"-->
+<!--                            android:layout_width="wrap_content"-->
+<!--                            android:layout_height="wrap_content"-->
+<!--                            android:fontFamily="@font/montserrat_alternates"-->
+<!--                            android:text="Отец +сын"-->
+<!--                            android:textColor="@color/white"-->
+<!--                            android:textSize="16sp" />-->
+
+
+<!--                        <TextView-->
+<!--                            android:id="@+id/price_father_and_son"-->
+<!--                            android:layout_width="wrap_content"-->
+<!--                            android:layout_height="wrap_content"-->
+<!--                            android:layout_marginStart="12dp"-->
+<!--                            android:text="@string/_1000_c"-->
+<!--                            android:textColor="@color/brown"-->
+<!--                            android:textSize="16sp"-->
+<!--                            android:textStyle="bold" />-->
+<!--                    </LinearLayout>-->
+
+<!--                    <TextView-->
+<!--                        android:layout_width="220dp"-->
+<!--                        android:layout_height="wrap_content"-->
+<!--                        android:layout_marginTop="12dp"-->
+<!--                        android:fontFamily="@font/montserrat_alternates"-->
+<!--                        android:text="Стрижка 1000 с. с вторника по четверг с 11:00 до 14:00 по промокоду “FatSon1” "-->
+<!--                        android:textColor="@color/white"-->
+<!--                        android:textSize="16sp" />-->
+<!--                </LinearLayout>-->
+
+
+<!--                <androidx.cardview.widget.CardView-->
+<!--                    android:id="@+id/btn_shaving"-->
+<!--                    android:layout_width="match_parent"-->
+<!--                    android:layout_height="wrap_content"-->
+<!--                    android:layout_marginHorizontal="20dp"-->
+<!--                    android:layout_marginTop="16dp"-->
+<!--                    android:backgroundTint="@color/black"-->
+<!--                    app:cardCornerRadius="16dp">-->
+
+<!--                    <TextView-->
+<!--                        android:layout_width="wrap_content"-->
+<!--                        android:layout_height="wrap_content"-->
+<!--                        android:layout_marginStart="12dp"-->
+<!--                        android:fontFamily="@font/montserrat_alternates_extrabold"-->
+<!--                        android:paddingVertical="12dp"-->
+<!--                        android:text="@string/shaving"-->
+<!--                        android:textColor="@color/white"-->
+<!--                        android:textSize="16sp" />-->
+
+<!--                    <ImageView-->
+<!--                        android:layout_width="wrap_content"-->
+<!--                        android:layout_height="wrap_content"-->
+<!--                        android:layout_gravity="end|center"-->
+<!--                        android:layout_marginEnd="12dp"-->
+<!--                        android:background="@drawable/ic_arrow_top"-->
+<!--                        android:padding="16dp" />-->
+<!--                </androidx.cardview.widget.CardView>-->
+
+
+<!--                <LinearLayout-->
+<!--                    android:id="@+id/frame_stock"-->
+<!--                    android:layout_width="match_parent"-->
+<!--                    android:layout_height="wrap_content"-->
+<!--                    android:gravity="center"-->
+<!--                    android:orientation="vertical"-->
+<!--                    android:visibility="gone"-->
+<!--                    app:layout_constraintTop_toTopOf="parent">-->
+
+<!--                    <androidx.cardview.widget.CardView-->
+<!--                        android:layout_width="match_parent"-->
+<!--                        android:layout_height="wrap_content"-->
+<!--                        android:layout_marginHorizontal="36dp"-->
+<!--                        android:layout_marginTop="12dp"-->
+<!--                        app:cardCornerRadius="18dp">-->
+
+<!--                        <ImageView-->
+<!--                            android:layout_width="match_parent"-->
+<!--                            android:layout_height="180dp"-->
+<!--                            android:background="@drawable/img_5"-->
+<!--                            android:scaleType="centerCrop" />-->
+<!--                    </androidx.cardview.widget.CardView>-->
+
+<!--                    <LinearLayout-->
+<!--                        android:layout_width="match_parent"-->
+<!--                        android:layout_height="wrap_content"-->
+<!--                        android:gravity="center"-->
+<!--                        android:orientation="horizontal">-->
+
+<!--                        <RadioButton-->
+<!--                            android:id="@+id/btn_сheck_happy"-->
+<!--                            android:layout_width="wrap_content"-->
+<!--                            android:layout_height="wrap_content"-->
+<!--                            android:buttonTint="@color/brown"-->
+<!--                            app:layout_constraintEnd_toStartOf="@id/haircuts_happy"-->
+<!--                            app:layout_constraintTop_toTopOf="parent" />-->
+
+<!--                        <TextView-->
+<!--                            android:id="@+id/haircuts_happy"-->
+<!--                            android:layout_width="wrap_content"-->
+<!--                            android:layout_height="wrap_content"-->
+<!--                            android:fontFamily="@font/montserrat_alternates"-->
+<!--                            android:text="Стрижка Happy Hours"-->
+<!--                            android:textColor="@color/white"-->
+<!--                            android:textSize="16sp" />-->
+
+<!--                        <TextView-->
+<!--                            android:id="@+id/price_happy"-->
+<!--                            android:layout_width="wrap_content"-->
+<!--                            android:layout_height="wrap_content"-->
+<!--                            android:layout_marginStart="16dp"-->
+<!--                            android:gravity="center"-->
+<!--                            android:text="@string/_590_c"-->
+<!--                            android:textColor="@color/brown"-->
+<!--                            android:textSize="16sp"-->
+<!--                            android:textStyle="bold" />-->
+<!--                    </LinearLayout>-->
+
+
+<!--                    <TextView-->
+<!--                        android:id="@+id/desc_happy"-->
+<!--                        android:layout_width="220dp"-->
+<!--                        android:layout_height="wrap_content"-->
+<!--                        android:layout_marginTop="12dp"-->
+<!--                        android:fontFamily="@font/montserrat_alternates"-->
+<!--                        android:text="Стрижка 990 с. с понедельника по четверг с 12:00 до 15:00 по промокоду “Happy22”"-->
+<!--                        android:textColor="@color/white"-->
+<!--                        android:textSize="16sp"-->
+<!--                        app:layout_constraintStart_toStartOf="@id/price_happy"-->
+<!--                        app:layout_constraintTop_toBottomOf="@id/price_happy" />-->
+
+<!--                    <androidx.cardview.widget.CardView-->
+<!--                        android:id="@+id/container_father_and_son"-->
+<!--                        android:layout_width="match_parent"-->
+<!--                        android:layout_height="wrap_content"-->
+<!--                        android:layout_marginHorizontal="36dp"-->
+<!--                        android:layout_marginTop="12dp"-->
+<!--                        app:cardCornerRadius="18dp"-->
+<!--                        app:layout_constraintTop_toBottomOf="@id/desc_happy">-->
+
+<!--                        <ImageView-->
+<!--                            android:layout_width="match_parent"-->
+<!--                            android:layout_height="180dp"-->
+<!--                            android:background="@drawable/img_6"-->
+<!--                            android:scaleType="centerCrop" />-->
+<!--                    </androidx.cardview.widget.CardView>-->
+
+<!--                    <LinearLayout-->
+<!--                        android:layout_width="match_parent"-->
+<!--                        android:layout_height="wrap_content"-->
+<!--                        android:gravity="center"-->
+<!--                        android:orientation="horizontal">-->
+
+<!--                        <RadioButton-->
+<!--                            android:id="@+id/btn_check_father_and_son"-->
+<!--                            android:layout_width="wrap_content"-->
+<!--                            android:layout_height="wrap_content"-->
+<!--                            android:buttonTint="@color/brown" />-->
+
+<!--                        <TextView-->
+<!--                            android:id="@+id/tv_father_and_son"-->
+<!--                            android:layout_width="wrap_content"-->
+<!--                            android:layout_height="wrap_content"-->
+<!--                            android:fontFamily="@font/montserrat_alternates"-->
+<!--                            android:text="Отец +сын"-->
+<!--                            android:textColor="@color/white"-->
+<!--                            android:textSize="16sp" />-->
+
+
+<!--                        <TextView-->
+<!--                            android:id="@+id/price_father_and_son"-->
+<!--                            android:layout_width="wrap_content"-->
+<!--                            android:layout_height="wrap_content"-->
+<!--                            android:layout_marginStart="12dp"-->
+<!--                            android:text="@string/_1000_c"-->
+<!--                            android:textColor="@color/brown"-->
+<!--                            android:textSize="16sp"-->
+<!--                            android:textStyle="bold" />-->
+<!--                    </LinearLayout>-->
+
+<!--                    <TextView-->
+<!--                        android:layout_width="220dp"-->
+<!--                        android:layout_height="wrap_content"-->
+<!--                        android:layout_marginTop="12dp"-->
+<!--                        android:fontFamily="@font/montserrat_alternates"-->
+<!--                        android:text="Стрижка 1000 с. с вторника по четверг с 11:00 до 14:00 по промокоду “FatSon1” "-->
+<!--                        android:textColor="@color/white"-->
+<!--                        android:textSize="16sp" />-->
+<!--                </LinearLayout>-->
+
             </LinearLayout>
         </LinearLayout>
     </androidx.core.widget.NestedScrollView>

@@ -1,11 +1,10 @@
 package com.example.kingsmen.presentation.ui.home.barber.record
 
 import android.os.Bundle
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import com.example.kingsmen.R
+import androidx.fragment.app.Fragment
 import com.example.kingsmen.databinding.FragmentRecordBinding
 
 class RecordFragment : Fragment() {
@@ -14,7 +13,7 @@ class RecordFragment : Fragment() {
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
+    ): View {
         binding= FragmentRecordBinding.inflate(inflater,container,false)
         return binding.root
     }
@@ -26,11 +25,11 @@ class RecordFragment : Fragment() {
 
     private fun initListiners() {
         binding.btnStock.setOnClickListener {
-            if (binding.rvStock.visibility == View.GONE) {
-                binding.rvStock.visibility = View.VISIBLE
+            if (binding.frameStock.visibility == View.GONE) {
+                binding.frameStock.visibility = View.VISIBLE
             }
             else{
-                binding.rvStock.visibility = View.GONE
+                binding.frameStock.visibility = View.GONE
             }
         }
     }

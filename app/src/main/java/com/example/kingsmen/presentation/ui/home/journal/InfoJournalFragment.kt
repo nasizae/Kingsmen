@@ -1,4 +1,4 @@
-package com.example.kingsmen.presentation.ui.home.barber.portfolio
+package com.example.kingsmen.presentation.ui.home.journal
 
 import android.os.Bundle
 import android.util.Log
@@ -7,55 +7,49 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
 import androidx.fragment.app.Fragment
+import coil.load
 import com.example.kingsmen.data.network.RetrofitClient
 import com.example.kingsmen.data.remote.RemoteDataSource
-import com.example.kingsmen.databinding.FragmentPortfolioBinding
+import com.example.kingsmen.databinding.FragmentInfoJournalBinding
 import com.example.kingsmen.domain.repository.Repository
 
-class PortfolioFragment : Fragment() {
-    private lateinit var binding: FragmentPortfolioBinding
+class InfoJournalFragment : Fragment() {
+
+    private lateinit var args: InfoJournalFragmentArgs
+    private lateinit var binding: FragmentInfoJournalBinding
     private val retrofitClient= RetrofitClient().createApiService()
     private val remoteDataSource= RemoteDataSource(retrofitClient)
     private val repository= Repository(remoteDataSource)
-    private val viewModel= PortfolioViewModel(repository)
-    private val adapter= PortfolioAdapter()
-    private lateinit var args: PortfolioFragmentArgs
+    private val viewModel= JournalViewModel(repository)
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-        binding= FragmentPortfolioBinding.inflate(layoutInflater)
+        binding= FragmentInfoJournalBinding.inflate(layoutInflater)
         return binding.root
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        initListeners()
-        initLiveData()
-    }
+        args=InfoJournalFragmentArgs.fromBundle(requireArguments())
+            viewModel.getJournal(args.journal)
+        Log.e("ololo", "onViewCreated: ${args.journal}", )
 
-    private fun initListeners() {
-            val data=arguments?.getInt("id")
-            viewModel.getPortfolio(data!!)
-        Log.e("ololo", "initListeners: $data", )
-    }
+        viewModel.journal.observe(viewLifecycleOwner){
 
-    private fun initLiveData() {
-        viewModel.getPortfolio.observe(viewLifecycleOwner){
-            adapter.addData(it)
-            binding.rvPortfolio.adapter=adapter
+                binding.tvName.text=it.toString()
+                binding.tvDesc.text=it.toString()
+                binding.imgBarber.load(it)
+
         }
         viewModel.loading.observe(viewLifecycleOwner){
-            if(it){
-                binding.loading.root.visibility=View.VISIBLE
-            }
-            else{
-                binding.loading.root.visibility=View.GONE
-            }
+            Toast.makeText(requireContext(), "loading", Toast.LENGTH_SHORT).show()
         }
         viewModel.error.observe(viewLifecycleOwner){
             Toast.makeText(requireContext(), "error", Toast.LENGTH_SHORT).show()
         }
+
     }
+
 
 }

@@ -3,13 +3,23 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/mobile_navigation"
-    app:startDestination="@id/barberFragment">
+    app:startDestination="@id/mainFragment">
 
     <fragment
         android:id="@+id/navigation_home"
         android:name="com.example.kingsmen.presentation.ui.home.HomeFragment"
         android:label="@string/title_home"
-        tools:layout="@layout/fragment_home" />
+        tools:layout="@layout/fragment_home" >
+        <action
+            android:id="@+id/action_navigation_home_to_barberFragment"
+            app:destination="@id/barberFragment" />
+        <action
+            android:id="@+id/action_navigation_home_to_portfolioFragment"
+            app:destination="@id/portfolioFragment" />
+        <action
+            android:id="@+id/action_navigation_home_to_infoJournalFragment"
+            app:destination="@id/infoJournalFragment" />
+    </fragment>
 
     <fragment
         android:id="@+id/navigation_shop"
@@ -66,12 +76,21 @@
         android:id="@+id/barberFragment"
         android:name="com.example.kingsmen.presentation.ui.home.barber.BarberFragment"
         android:label="fragment_barber"
-        tools:layout="@layout/fragment_barber" />
+        tools:layout="@layout/fragment_barber">
+        <argument
+            android:name="master"
+            app:argType="com.example.kingsmen.data.model.ModelMastersItem" />
+    </fragment>
     <fragment
         android:id="@+id/portfolioFragment"
         android:name="com.example.kingsmen.presentation.ui.home.barber.portfolio.PortfolioFragment"
         android:label="fragment_portfolio"
-        tools:layout="@layout/fragment_portfolio" />
+        tools:layout="@layout/fragment_portfolio">
+        <argument
+            android:name="masters"
+            app:argType="com.example.kingsmen.data.model.ModelMastersItem" />
+
+    </fragment>
     <fragment
         android:id="@+id/recordFragment"
         android:name="com.example.kingsmen.presentation.ui.home.barber.record.RecordFragment"
@@ -82,4 +101,12 @@
         android:name="com.example.kingsmen.presentation.ui.home.barber.reviews.ReviewsFragment"
         android:label="fragment_reviews"
         tools:layout="@layout/fragment_reviews" />
+    <fragment
+        android:id="@+id/infoJournalFragment"
+        android:name="com.example.kingsmen.presentation.ui.home.journal.InfoJournalFragment"
+        android:label="fragment_info_journal"
+        tools:layout="@layout/fragment_info_journal" >
+    <argument android:name="journal"
+        app:argType="integer"/>
+    </fragment>
 </navigation>
