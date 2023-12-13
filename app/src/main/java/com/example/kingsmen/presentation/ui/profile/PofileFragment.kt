@@ -25,9 +25,6 @@ class PofileFragment :
 
     override fun initListenrs() {
         with(binding) {
-            btnBarbershop.setOnClickListener {
-                findNavController().navigate(R.id.barberShopFragment)
-            }
             btnCard.setOnClickListener {
                 findNavController().navigate(R.id.cardFragment)
             }

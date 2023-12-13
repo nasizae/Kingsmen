@@ -6,10 +6,10 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.core.content.ContextCompat
 import androidx.fragment.app.Fragment
+import androidx.navigation.fragment.findNavController
 import coil.load
 import com.example.kingsmen.R
 import com.example.kingsmen.databinding.FragmentBarberBinding
-import com.example.kingsmen.presentation.ui.home.barber.portfolio.PortfolioFragment
 import com.example.kingsmen.presentation.ui.home.barber.viewpageradapter.ViewPagerAdapter
 import com.google.android.material.tabs.TabLayoutMediator
 
@@ -29,25 +29,27 @@ class BarberFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         initViewPager()
-        initLiveData()
+        initClicker()
     }
 
-    private fun initLiveData() {
-        args = BarberFragmentArgs.fromBundle(requireArguments())
-        val bundle=Bundle()
-        args.master.let { master ->
-            binding.imgBarber.load(master.source_img)
-            binding.tvName.text = master.login
-            bundle.putInt("id",master.id)
-           PortfolioFragment().arguments=bundle
+    private fun initClicker() {
+        binding.btnBack.setOnClickListener {
+            findNavController().navigateUp()
         }
     }
-
     private fun initViewPager() {
         val tabLayout = binding.tabLayout
         val viewPager = binding.viewPager
         val adapter = ViewPagerAdapter(requireActivity().supportFragmentManager, lifecycle)
         viewPager.adapter = adapter
+        args = BarberFragmentArgs.fromBundle(requireArguments())
+        args.master.let { master ->
+            binding.imgBarber.load(master.source_img)
+            binding.tvName.text = master.login
+        }
+        val  bundle=Bundle()
+        bundle.putSerializable("key" , args.master)
+        adapter.setArguments(bundle)
         // Установка цветов текста для активного и неактивного состояний
         tabLayout.setTabTextColors(ContextCompat.getColor(requireContext(),R.color.white),
                                     ContextCompat.getColor(requireContext(),R.color.brown))

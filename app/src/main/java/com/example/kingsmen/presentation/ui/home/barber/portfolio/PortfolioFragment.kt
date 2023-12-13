@@ -7,6 +7,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
 import androidx.fragment.app.Fragment
+import com.example.kingsmen.data.model.ModelMastersItem
 import com.example.kingsmen.data.network.RetrofitClient
 import com.example.kingsmen.data.remote.RemoteDataSource
 import com.example.kingsmen.databinding.FragmentPortfolioBinding
@@ -35,9 +36,9 @@ class PortfolioFragment : Fragment() {
     }
 
     private fun initListeners() {
-            val data=arguments?.getInt("id")
-            viewModel.getPortfolio(data!!)
-        Log.e("ololo", "initListeners: $data", )
+       val data= arguments?.getSerializable("key") as ModelMastersItem
+        viewModel.getPortfolio(data.id)
+        Log.e("ololo", "initListeners: ${data.id}", )
     }
 
     private fun initLiveData() {

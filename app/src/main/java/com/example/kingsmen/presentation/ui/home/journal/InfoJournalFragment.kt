@@ -1,12 +1,11 @@
 package com.example.kingsmen.presentation.ui.home.journal
 
 import android.os.Bundle
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Toast
 import androidx.fragment.app.Fragment
+import androidx.navigation.fragment.findNavController
 import coil.load
 import com.example.kingsmen.data.network.RetrofitClient
 import com.example.kingsmen.data.remote.RemoteDataSource
@@ -20,7 +19,7 @@ class InfoJournalFragment : Fragment() {
     private val retrofitClient= RetrofitClient().createApiService()
     private val remoteDataSource= RemoteDataSource(retrofitClient)
     private val repository= Repository(remoteDataSource)
-    private val viewModel= JournalViewModel(repository)
+    private val viewModel = JournalViewModel(repository)
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -31,25 +30,33 @@ class InfoJournalFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        args=InfoJournalFragmentArgs.fromBundle(requireArguments())
-            viewModel.getJournal(args.journal)
-        Log.e("ololo", "onViewCreated: ${args.journal}", )
-
-        viewModel.journal.observe(viewLifecycleOwner){
-
-                binding.tvName.text=it.toString()
-                binding.tvDesc.text=it.toString()
-                binding.imgBarber.load(it)
-
-        }
-        viewModel.loading.observe(viewLifecycleOwner){
-            Toast.makeText(requireContext(), "loading", Toast.LENGTH_SHORT).show()
-        }
-        viewModel.error.observe(viewLifecycleOwner){
-            Toast.makeText(requireContext(), "error", Toast.LENGTH_SHORT).show()
-        }
+        initLiveData()
+        initClicker()
 
     }
 
+    private fun initClicker() {
+        binding.btnBack.setOnClickListener {
+            findNavController().navigateUp()
+        }
+    }
 
+    private fun initLiveData() {
+        args=InfoJournalFragmentArgs.fromBundle(requireArguments())
+        viewModel.getJournal(args.journal)
+        viewModel.journal.observe(viewLifecycleOwner){
+            binding.imgBarber.load(it.source_img)
+            binding.tvDesc.text=it.text
+            binding.tvName.text=it.title
+        }
+        viewModel.loading.observe(viewLifecycleOwner){
+            if(it){
+                binding.loading.root.visibility=View.VISIBLE
+            }
+            else{
+                binding.loading.root.visibility=View.GONE
+                binding.btnBack.visibility=View.VISIBLE
+            }
+        }
+    }
 }

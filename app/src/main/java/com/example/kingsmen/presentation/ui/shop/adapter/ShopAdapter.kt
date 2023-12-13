@@ -9,7 +9,7 @@ import com.bumptech.glide.Glide
 import com.example.kingsmen.data.model.ProductModelItem
 import com.example.kingsmen.databinding.ItemShopProductBinding
 
-class ShopAdapter:Adapter<ShopAdapter.ShopHolder>() {
+class ShopAdapter(private val onclick:(productmodelitem:ProductModelItem)->Unit):Adapter<ShopAdapter.ShopHolder>() {
 
     private val _list= mutableListOf<ProductModelItem>()
     val list:List<ProductModelItem> get() = _list
@@ -38,6 +38,9 @@ class ShopAdapter:Adapter<ShopAdapter.ShopHolder>() {
                 count.text=productModelItem.volume.toString()+"мл"
                 btnBay.text=productModelItem.price.toString()+"c."
 
+            }
+            itemView.setOnClickListener {
+                onclick(productModelItem)
             }
         }
 

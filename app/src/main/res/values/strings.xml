@@ -49,4 +49,8 @@
     <string name="_1000_c">1000 c</string>
     <string name="_1390_c">1390 c</string>
     <string name="_1250_c">1250 c</string>
+    <string name="records_kingsmen">Записаться Kingsmen</string>
+    <string name="bay">Подтверждение покупки</string>
+    <string name="cancel">отмена</string>
+    <string name="yes">Да</string>
 </resources>

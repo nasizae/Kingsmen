@@ -6,7 +6,14 @@
     android:layout_height="match_parent"
     android:background="@color/night"
     tools:context=".presentation.ui.home.HomeFragment">
-
+    <include
+        android:id="@+id/loading"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:visibility="gone"
+        app:layout_constraintTop_toBottomOf="@id/records"
+        app:layout_constraintBottom_toBottomOf="parent"
+        layout="@layout/progressbar"/>
     <TextView
         android:id="@+id/journal"
         android:layout_width="wrap_content"
@@ -138,7 +145,7 @@
         android:layout_height="wrap_content"
         android:layout_marginBottom="60dp"
         android:fontFamily="@font/montserrat_alternates"
-        android:text="Записаться м.Сокол"
+        android:text="@string/records_kingsmen"
         android:textColor="@color/white"
         android:textSize="16sp"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -148,9 +155,9 @@
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/rv_master_barber"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
+        android:layout_height="0dp"
         app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
         app:layout_constraintTop_toBottomOf="@id/records"
+        app:layout_constraintBottom_toBottomOf="parent"
         tools:listitem="@layout/item_barber" />
 </androidx.constraintlayout.widget.ConstraintLayout>

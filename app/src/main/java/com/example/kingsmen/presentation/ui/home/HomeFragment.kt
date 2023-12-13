@@ -1,6 +1,7 @@
 package com.example.kingsmen.presentation.ui.home
 
 import android.view.LayoutInflater
+import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
 import androidx.navigation.fragment.findNavController
@@ -55,7 +56,12 @@ class HomeFragment :
             binding.rvMasterBarber.adapter=adapter
         }
         viewModel.loading.observe(viewLifecycleOwner){
-            Toast.makeText(requireContext(), "loading", Toast.LENGTH_SHORT).show()
+            if(it){
+                binding.loading.root.visibility= View.VISIBLE
+            }
+            else{
+                binding.loading.root.visibility= View.GONE
+            }
         }
         viewModel.error.observe(viewLifecycleOwner){
             Toast.makeText(requireContext(), "error", Toast.LENGTH_SHORT).show()

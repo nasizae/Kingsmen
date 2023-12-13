@@ -28,7 +28,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
-        android:text="45 Товарa"
+        tools:text="45 Товарa"
         android:textColor="@color/white"
         android:textSize="20sp"
         app:layout_constraintStart_toStartOf="@id/appBar"
@@ -37,10 +37,11 @@
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/rv_product"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="0dp"
         android:layout_marginTop="20dp"
         app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
         app:layout_constraintTop_toBottomOf="@id/count"
         app:spanCount="2"
+        app:layout_constraintBottom_toBottomOf="parent"
         tools:listitem="@layout/item_shop_product" />
 </androidx.constraintlayout.widget.ConstraintLayout>

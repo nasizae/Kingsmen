@@ -61,7 +61,7 @@
         app:layout_constraintTop_toBottomOf="@id/username" />
 
     <androidx.cardview.widget.CardView
-        android:id="@+id/btn_barbershop"
+        android:id="@+id/btn_settings"
         android:layout_width="180dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="18dp"
@@ -81,7 +81,7 @@
                 android:layout_height="80dp"
                 android:layout_gravity="end"
                 android:background="@color/black"
-                android:src="@drawable/ic_barbershop"
+                android:src="@drawable/settings"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
 
@@ -90,8 +90,8 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:fontFamily="@font/montserrat_alternates"
-                android:paddingStart="12dp"
-                android:text="Барбершоп:\nkingsmen"
+                android:layout_marginStart="12dp"
+                android:text="Настройки"
                 android:textColor="@color/white"
                 android:textSize="14sp"
                 app:layout_constraintStart_toStartOf="parent"
@@ -118,10 +118,10 @@
         android:layout_margin="16dp"
         android:backgroundTint="@color/black"
         app:cardCornerRadius="16dp"
-        app:layout_constraintBottom_toBottomOf="@id/btn_barbershop"
+        app:layout_constraintBottom_toBottomOf="@id/btn_settings"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@id/btn_barbershop"
-        app:layout_constraintTop_toTopOf="@id/btn_barbershop">
+        app:layout_constraintStart_toEndOf="@id/btn_settings"
+        app:layout_constraintTop_toTopOf="@id/btn_settings">
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
@@ -170,9 +170,9 @@
         android:layout_margin="16dp"
         android:backgroundTint="@color/black"
         app:cardCornerRadius="16dp"
-        app:layout_constraintEnd_toEndOf="@id/btn_barbershop"
-        app:layout_constraintStart_toStartOf="@id/btn_barbershop"
-        app:layout_constraintTop_toBottomOf="@id/btn_barbershop">
+        app:layout_constraintEnd_toEndOf="@id/btn_settings"
+        app:layout_constraintStart_toStartOf="@id/btn_settings"
+        app:layout_constraintTop_toBottomOf="@id/btn_settings">
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
@@ -263,58 +263,6 @@
         </androidx.constraintlayout.widget.ConstraintLayout>
     </androidx.cardview.widget.CardView>
 
-    <androidx.cardview.widget.CardView
-        android:id="@+id/btn_settings"
-        android:layout_width="180dp"
-        android:layout_height="wrap_content"
-        android:layout_margin="16dp"
-        android:backgroundTint="@color/black"
-        app:cardCornerRadius="16dp"
-        app:layout_constraintEnd_toEndOf="@id/btn_card"
-        app:layout_constraintStart_toStartOf="@id/btn_history_shops"
-        app:layout_constraintTop_toBottomOf="@id/btn_card"
-
-        >
-
-        <androidx.constraintlayout.widget.ConstraintLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent">
-
-            <ImageView
-                android:id="@+id/img4"
-                android:layout_width="140dp"
-                android:layout_height="80dp"
-                android:layout_gravity="end"
-                android:background="@color/black"
-                android:src="@drawable/settings"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
-
-            <TextView
-                android:id="@+id/desc4"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="16dp"
-                android:fontFamily="@font/montserrat_alternates"
-                android:paddingStart="12dp"
-                android:paddingBottom="6dp"
-                android:text="Настройки"
-                android:textColor="@color/white"
-                android:textSize="14sp"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/img4" />
-
-            <ImageButton
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="16dp"
-                android:background="@drawable/btn_arrow_right"
-                android:padding="14dp"
-                app:layout_constraintBottom_toBottomOf="@id/desc4"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintTop_toTopOf="@id/desc4" />
-        </androidx.constraintlayout.widget.ConstraintLayout>
-    </androidx.cardview.widget.CardView>
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
